@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعرض - مشروع تطوير شارع المقبرة</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>تطوير شارع المقبرة</h2>
+                <p class="subtitle">أبو ديس - القدس</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="gallery.html" class="active">المعرض</a></li>
+                <li><a href="about.html">من نحن</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">المعرض التوضيحي</h1>
+            <p class="page-description">صور ومقاطع فيديو توضح الوضع الحالي والتصور المستقبلي للشارع</p>
+        </div>
+    </section>
+
+    <!-- Before/After Comparison Section -->
+    <section class="section gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">قبل وبعد</span>
+                <h2 class="section-title">مقارنة التطوير</h2>
+                <p class="section-description">شاهد الفرق بين الوضع الحالي والتصور المقترح للتطوير</p>
+            </div>
+
+            <!-- المقارنة 1: التشجير -->
+            <div class="comparison-container">
+                <div class="comparison-header">
+                    <h3>🌳 التشجير والنظافة</h3>
+                </div>
+                <div class="comparison-grid">
+                    <div class="comparison-item before">
+                        <div class="comparison-label">قبل</div>
+                        <img src="Media/تشجير.jpg" alt="قبل التطوير - منطقة بدون تشجير" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="comparison-item after">
+                        <div class="comparison-label">بعد</div>
+                        <img src="Media/تشجير بعد.png" alt="بعد التطوير - منطقة مشجرة" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- المقارنة 2: الشوارع المدمرة -->
+            <div class="comparison-container">
+                <div class="comparison-header">
+                    <h3>🛣️ إصلاح الشوارع</h3>
+                </div>
+                <div class="comparison-grid">
+                    <div class="comparison-item before">
+                        <div class="comparison-label">قبل</div>
+                        <img src="Media/شوراع مدمرة.jpeg" alt="قبل التطوير - شوارع متضررة" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="comparison-item after">
+                        <div class="comparison-label">بعد</div>
+                        <img src="Media/شوراع مدمرة بعد.png" alt="بعد التطوير - شوارع مُصلحة" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- المقارنة 3: القمامة -->
+            <div class="comparison-container">
+                <div class="comparison-header">
+                    <h3>🗑️ النظافة العامة</h3>
+                </div>
+                <div class="comparison-grid">
+                    <div class="comparison-item before">
+                        <div class="comparison-label">قبل</div>
+                        <img src="Media/قمامة.jpg" alt="قبل التطوير - تراكم القمامة" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="comparison-item after">
+                        <div class="comparison-label">بعد</div>
+                        <img src="Media/قمامة بعد.png" alt="بعد التطوير - منطقة نظيفة" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- المقارنة 4: كثرة صف السيارات -->
+            <div class="comparison-container">
+                <div class="comparison-header">
+                    <h3>🚗 تنظيم المواقف</h3>
+                </div>
+                <div class="comparison-grid">
+                    <div class="comparison-item before">
+                        <div class="comparison-label">قبل</div>
+                        <img src="Media/كثرة صفة السيارات.jpg" alt="قبل التطوير - صف عشوائي للسيارات" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="comparison-item after">
+                        <div class="comparison-label">بعد</div>
+                        <img src="Media/كثرة صفة السيارات بعد.png" alt="بعد التطوير - مواقف منظمة" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Images Section -->
+    <section class="section additional-gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">صور إضافية</span>
+                <h2 class="section-title">المشاكل الحالية</h2>
+                <p class="section-description">صور توضح التحديات التي يواجهها الشارع</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Media/سيارة ملتصقة بالمشاة.png" alt="سيارة ملتصقة بالمشاة">
+                    <div class="gallery-caption">
+                        <h4>🚗 قرب السيارات من المشاة</h4>
+                        <p>عدم وجود رصيف يفصل بين السيارات والمشاة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="section video-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">فيديو توضيحي</span>
+                <h2 class="section-title">جولة في الموقع</h2>
+                <p class="section-description">مقاطع فيديو توضح الوضع الحالي للشارع</p>
+            </div>
+
+            <div class="video-grid">
+                <!-- فيديو 1: توضيح الطريق -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="Media/توضيح الطريق.mp4" type="video/mp4">
+                            المتصفح لا يدعم عرض الفيديو
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>🛣️ توضيح الطريق</h3>
+                        <p>فيديو يوضح الوضع الحالي للطريق والتحديات الموجودة</p>
+                    </div>
+                </div>
+
+                <!-- فيديو 2: قرب السيارات عند المشي -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="Media/قرب السيارات عند المشي.mp4" type="video/mp4">
+                            المتصفح لا يدعم عرض الفيديو
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>🚶 قرب السيارات عند المشي</h3>
+                        <p>يوضح خطورة عدم وجود رصيف وقرب السيارات من المشاة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OpenStreetMap Interactive Section -->
+    <section class="section mapillary-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">الخريطة التفاعلية</span>
+                <h2 class="section-title">استكشف الموقع</h2>
+                <p class="section-description">شاهد موقع شارع المقبرة على الخريطة</p>
+            </div>
+
+            <div class="mapillary-grid">
+                <!-- نقطة البداية -->
+                <div class="mapillary-card">
+                    <h3>📍 نقطة البداية - سوبر ماركت النور</h3>
+                    <div id="map-start" class="mapillary-wrapper" style="height: 400px;"></div>
+                    <p class="mapillary-info">الإحداثيات: 31.760256, 35.262639</p>
+                </div>
+
+                <!-- نقطة النهاية -->
+                <div class="mapillary-card">
+                    <h3>🏛️ نقطة النهاية - بوابة كلية الطب</h3>
+                    <div id="map-end" class="mapillary-wrapper" style="height: 400px;"></div>
+                    <p class="mapillary-info">الإحداثيات: 31.756340, 35.262651</p>
+                </div>
+            </div>
+
+            <!-- خريطة المسار الكامل -->
+            <div class="full-route-map">
+                <h3>🗺️ المسار الكامل بين النقطتين</h3>
+                <div id="map-route" class="mapillary-wrapper" style="height: 500px;"></div>
+            </div>
+
+            <div class="distance-info">
+                <div class="distance-card">
+                    <div class="distance-icon">📏</div>
+                    <h3>المسافة الإجمالية</h3>
+                    <p class="distance-number">435 متر</p>
+                    <p class="distance-description">من سوبر ماركت النور إلى بوابة كلية الطب</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">اتصل بنا</h2>
+                <p class="section-description">للاستفسارات والمعلومات الإضافية</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h4>البريد الإلكتروني</h4>
+                    <p><a href="/cdn-cgi/l/email-protection#5c35323a331c3d302d29382f72393829"><span class="__cf_email__" data-cfemail="620b0c040d22030e131706114c070617">[email&#160;protected]</span></a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h4>الهاتف</h4>
+                    <p dir="ltr">+970 2 279 9000</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h4>العنوان</h4>
+                    <p>جامعة القدس - أبو ديس، القدس</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>مشروع تطوير شارع المقبرة</h3>
+                    <p>مشروع أكاديمي لتطوير البنية التحتية في أبو ديس</p>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="gallery.html">المعرض</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>معلومات المشروع</h4>
+                    <p>المساق: مواضيع تطبيقية</p>
+                    <p>المشرف: د. محمد شريعة</p>
+                    <p>جامعة القدس - 2025/2025</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 مشروع تطوير شارع المقبرة - جامعة القدس. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet.js for maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // الإحداثيات
+        const startPoint = [31.7602564317659, 35.262639094289426];
+        const endPoint = [31.756340072034693, 35.26265083343506];
+
+        // أيقونة البداية (أخضر)
+        const startIcon = L.divIcon({
+            className: 'custom-marker',
+            html: '<div style="background-color: #2C5F2D; width: 25px; height: 25px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></div>',
+            iconSize: [25, 25],
+            iconAnchor: [12, 12]
+        });
+
+        // أيقونة النهاية (ذهبي)
+        const endIcon = L.divIcon({
+            className: 'custom-marker',
+            html: '<div style="background-color: #D4AF37; width: 25px; height: 25px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></div>',
+            iconSize: [25, 25],
+            iconAnchor: [12, 12]
+        });
+
+        // 1️⃣ خريطة نقطة البداية
+        if (document.getElementById('map-start')) {
+            const mapStart = L.map('map-start').setView(startPoint, 18);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap'
+            }).addTo(mapStart);
+            L.marker(startPoint, { icon: startIcon }).addTo(mapStart)
+                .bindPopup('<strong>نقطة البداية</strong><br>سوبر ماركت النور').openPopup();
+        }
+
+        // 2️⃣ خريطة نقطة النهاية
+        if (document.getElementById('map-end')) {
+            const mapEnd = L.map('map-end').setView(endPoint, 18);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap'
+            }).addTo(mapEnd);
+            L.marker(endPoint, { icon: endIcon }).addTo(mapEnd)
+                .bindPopup('<strong>نقطة النهاية</strong><br>بوابة كلية الطب').openPopup();
+        }
+
+        // 3️⃣ خريطة المسار الكامل
+        if (document.getElementById('map-route')) {
+            const mapRoute = L.map('map-route');
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap'
+            }).addTo(mapRoute);
+            
+            L.marker(startPoint, { icon: startIcon }).addTo(mapRoute)
+                .bindPopup('<strong>نقطة البداية</strong><br>سوبر ماركت النور');
+            L.marker(endPoint, { icon: endIcon }).addTo(mapRoute)
+                .bindPopup('<strong>نقطة النهاية</strong><br>بوابة كلية الطب');
+            
+            L.polyline([startPoint, endPoint], {
+                color: '#E67E22',
+                weight: 5,
+                opacity: 0.8,
+                dashArray: '10, 5'
+            }).addTo(mapRoute)
+                .bindPopup('<strong>شارع المقبرة</strong><br>المسافة: ~435 متر');
+            
+                   mapRoute.fitBounds([startPoint, endPoint], { padding: [50, 50] });
+        }
+
+        console.log('✅ جميع الخرائط تم تحميلها بنجاح');
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

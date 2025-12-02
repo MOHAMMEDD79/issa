@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشروع تطوير شارع المقبرة - أبو ديس</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>تطوير شارع المقبرة</h2>
+                <p class="subtitle">أبو ديس - القدس</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li><a href="gallery.html">المعرض</a></li>
+                <li><a href="about.html">من نحن</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-tag">مشروع تطويري شامل</span>
+                <h1 class="hero-title">
+                    <span class="title-line">تطوير شارع المقبرة</span>
+                    <span class="title-highlight">من أجل مستقبل أفضل</span>
+                </h1>
+                <p class="hero-description">
+                    مشروع تطويري شامل لتحسين البنية التحتية وضمان سلامة 600 طالب يومياً من جامعة القدس
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">600+</div>
+                        <div class="stat-label">طالب يومياً</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">435م</div>
+                        <div class="stat-label">طول الشارع</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">حلول تطويرية</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- About Project Section -->
+    <section class="section project-overview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">نظرة عامة</span>
+                <h2 class="section-title">عن المشروع</h2>
+            </div>
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <p class="lead-text">
+                        يُعتبر شارع المقبرة في أبو ديس من الشوارع الحيوية التي تربط بين سوبر ماركت النور وبوابة كلية الطب في جامعة القدس. 
+                        يمر عبر هذا الشارع يومياً ما يقارب 600 طالب وطالبة، بالإضافة إلى السكان المحليين.
+                    </p>
+                    <p>
+                        يهدف هذا المشروع إلى تقديم حلول عملية وشاملة لتطوير الشارع وتحسين البنية التحتية فيه، 
+                        مع التركيز على سلامة الطلاب والسكان المحليين وتوفير بيئة صحية ونظيفة.
+                    </p>
+                    <div class="location-info">
+                        <div class="location-item">
+                            <strong>📍 نقطة البداية:</strong> سوبر ماركت النور
+                        </div>
+                        <div class="location-item">
+                            <strong>🏛️ نقطة النهاية:</strong> بوابة كلية الطب - جامعة القدس
+                        </div>
+                    </div>
+                </div>
+                <div class="overview-map">
+                    <div id="map" class="map-container"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="section problems-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">التحديات</span>
+                <h2 class="section-title">المشاكل الحالية</h2>
+            </div>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">⚠️</div>
+                    <h3>السلامة والأمان</h3>
+                    <ul>
+                        <li>شارع ضيق غير مؤهل لاستيعاب الحركة اليومية</li>
+                        <li>سرعة المركبات الزائدة وعدم وجود مطبات</li>
+                        <li>عدم وجود رصيف مخصص للمشاة</li>
+                        <li>حركة المرور في اتجاهين رغم ضيق الشارع</li>
+                    </ul>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🚧</div>
+                    <h3>البنية التحتية</h3>
+                    <ul>
+                        <li>نظام الصرف الصحي غير مؤهل</li>
+                        <li>تسرب المياه العادمة في عدة نقاط</li>
+                        <li>تعطل الإنارة في بعض المناطق</li>
+                        <li>عدم وجود لوحات إرشادية</li>
+                    </ul>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🗑️</div>
+                    <h3>النظافة العامة</h3>
+                    <ul>
+                        <li>تراكم النفايات بالقرب من الجامعة</li>
+                        <li>عدم وجود حاويات كافية</li>
+                        <li>اضطرار الطلاب للمشي 300 متر لإلقاء النفايات</li>
+                        <li>غياب نظام منظم لإدارة النفايات</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="section solutions-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">الحلول</span>
+                <h2 class="section-title">المقترحات التطويرية</h2>
+            </div>
+            <div class="solutions-timeline">
+                <div class="solution-item">
+                    <div class="solution-number">01</div>
+                    <div class="solution-content">
+                        <h3>تطوير البنية التحتية للطرق</h3>
+                        <ul>
+                            <li>تحويل الشارع إلى اتجاه واحد</li>
+                            <li>إنشاء رصيف للمشاة بعرض 1.5 متر</li>
+                            <li>إنشاء دوار صغير عند سوبر ماركت النور</li>
+                            <li>تركيب مطبات صناعية</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-number">02</div>
+                    <div class="solution-content">
+                        <h3>تحسين الصرف الصحي والإنارة</h3>
+                        <ul>
+                            <li>إصلاح شبكة الصرف الصحي بالكامل</li>
+                            <li>استبدال أعمدة الإنارة المتعطلة</li>
+                            <li>إضافة أعمدة إنارة إضافية</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-number">03</div>
+                    <div class="solution-content">
+                        <h3>حلول النظافة وإدارة النفايات</h3>
+                        <ul>
+                            <li>إنشاء منطقة مخصصة للنفايات</li>
+                            <li>توزيع سلات نفايات كافية</li>
+                            <li>جدول منتظم لجمع النفايات</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-number">04</div>
+                    <div class="solution-content">
+                        <h3>اللوحات الإرشادية</h3>
+                        <ul>
+                            <li>تركيب لوحات تحذيرية للسائقين</li>
+                            <li>لوحات إرشادية توضح الاتجاهات</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-number">05</div>
+                    <div class="solution-content">
+                        <h3>التشجير والتجميل البيئي</h3>
+                        <ul>
+                            <li>زراعة أشجار على جانبي الرصيف</li>
+                            <li>تخصيص مساحات خضراء</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">الفوائد</span>
+                <h2 class="section-title">الأثر المتوقع</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>تحسين السلامة</h3>
+                    <p>تقليل الحوادث وحماية حياة الطلاب من خلال تنظيم الحركة</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌱</div>
+                    <h3>جودة الحياة</h3>
+                    <p>بيئة حضرية نظيفة ومنظمة تتناسب مع الطبيعة الأكاديمية</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💚</div>
+                    <h3>الصحة العامة</h3>
+                    <p>القضاء على تسرب المياه وتحسين الظروف الصحية</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>رفع القيمة</h3>
+                    <p>زيادة جاذبية المنطقة للسكن والاستثمار</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✨</div>
+                    <h3>الصورة العامة</h3>
+                    <p>بيئة متطورة تعكس مكانة جامعة القدس</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>توفير التكاليف</h3>
+                    <p>تقليل تكاليف الصيانة على المدى الطويل</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>معاً من أجل بيئة آمنة وصحية</h2>
+                <p>مشروع تطويري شامل لخدمة المجتمع الأكاديمي والمحلي في أبو ديس</p>
+                <div class="cta-buttons">
+                    <a href="gallery.html" class="btn btn-primary">شاهد المعرض</a>
+                    <a href="about.html" class="btn btn-secondary">تعرف علينا</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>مشروع تطوير شارع المقبرة</h3>
+                    <p>مشروع أكاديمي من جامعة القدس</p>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="gallery.html">المعرض</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>الموقع</h4>
+                    <p>شارع المقبرة<br>أبو ديس - القدس</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 جامعة القدس - مساق مواضيع تطبيقية</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet.js -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
